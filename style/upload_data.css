@@ -1,0 +1,180 @@
+/* Upload Data CSS - Final (RAPIH) */
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa; /* sesuai index.css */
+    color: #222;
+}
+
+/* HEADER */
+.header {
+    background: #4ba9d5;
+    padding: 12px 16px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+    height: 120px;
+    width: auto;
+}
+
+/* MAIN */
+.main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 24px;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* FORM FIELD */
+.field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+/* INPUT & SELECT */
+.field input,
+.field select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.field select {
+    padding-right: 40px; /* ruang untuk arrow */
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+
+    /* hilangkan arrow default */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* custom arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='14' viewBox='0 0 20 20' fill='%2399a1ad' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5 7.5L10 12.0L14.5 7.5H5.5Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+}
+
+.field select:focus {
+    border-color: #3bb3ff;
+    box-shadow: 0 0 0 2px rgba(59, 179, 255, 0.25);
+}
+
+/* UPLOAD AREA */
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 260px;
+}
+
+.upload-icon {
+    font-size: 50px;
+    color: #94a3b8;
+}
+
+.upload-text {
+    margin: 12px 0;
+    color: #6b7280;
+}
+
+/* TEXT INSIDE UPLOAD */
+.text h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text h1 span {
+    display: block;
+}
+
+.text p {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* IMAGE */
+.image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: #38bdf8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.actions {
+    margin-top: 40px;
+}
+
+.btn-start {
+    background: #38bdf8;
+    padding: 14px 40px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .image,
+    .text {
+        flex: 1;
+    }
+
+    .text h1 {
+        font-size: 32px;
+    }
+}

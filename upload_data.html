@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Data Pasien</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="style/upload_data.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-box">
+            <img src="image/logo.png" alt="">
+        </div>
+    </header>
+
+    <main class="main">
+        <h2 class="title">Upload Data Pasien</h2>
+
+        <div class="grid">
+            <!-- FORM DATA PASIEN -->
+            <form id="form" action="save.php" method="POST" enctype="multipart/form-data">
+
+                <div class="field">
+                    <label>ID Pasien</label>
+                    <input type="text" name="patient_id" required>
+                </div>
+
+                <div class="field">
+                    <label>Nama Pasien</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="field">
+                    <label>Tanggal Lahir</label>
+                    <input type="date" name="birthdate" required>
+                </div>
+
+                <div class="field">
+                    <label>Jenis Kelamin</label>
+                    <select name="gender" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+
+                <!-- INPUT FILE (disembunyikan) -->
+                <input type="file" name="gambar" id="uploadInput" accept="image/*" style="display:none;">
+
+            </form>
+
+            <!-- UPLOAD AREA -->
+            <div class="upload-area" id="uploadArea">
+                <span class="upload-icon material-icons">cloud_upload</span>
+                <p class="upload-text" id="uploadText">Drag & drop files here or</p>
+
+                <button class="btn-primary" type="button" id="uploadBtn">Upload Image</button>
+            </div>
+        </div>
+
+        <!-- START BUTTON -->
+        <div class="actions">
+            <button class="btn-start" type="submit" form="form">Start Analysis</button>
+        </div>
+    </main>
+
+    <script>
+        const uploadBtn = document.getElementById("uploadBtn");
+        const uploadInput = document.getElementById("uploadInput");
+        const uploadArea = document.getElementById("uploadArea");
+        const uploadText = document.getElementById("uploadText");
+
+        // Klik tombol → buka file explorer
+        uploadBtn.addEventListener("click", () => uploadInput.click());
+
+        // Kalau user pilih file
+        uploadInput.addEventListener("change", () => {
+            if (uploadInput.files.length > 0) {
+                uploadText.textContent = "File selected: " + uploadInput.files[0].name;
+            }
+        });
+
+        // Drag Over (mencegah browser buka gambar)
+        uploadArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = "#38bdf8";
+        });
+
+        // Ketika drop file
+        uploadArea.addEventListener("drop", (e) => {
+            e.preventDefault();
+
+            const file = e.dataTransfer.files[0];
+            uploadInput.files = e.dataTransfer.files;
+
+            uploadText.textContent = "File selected: " + file.name;
+            uploadArea.style.borderColor = "#cbd5e1";
+        });
+
+        // Reset border saat drag leave
+        uploadArea.addEventListener("dragleave", () => {
+            uploadArea.style.borderColor = "#cbd5e1";
+        });
+    </script>
+
+</body>
+
+</html>
